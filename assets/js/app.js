@@ -8,6 +8,7 @@
     spot:      { label: "景點", color: "var(--c-spot)", hex: "#d6485f", ico: "📍" },
     food:      { label: "餐食", color: "var(--c-food)", hex: "#e0892b", ico: "🍜" },
     hotel:     { label: "住宿", color: "var(--c-hotel)", hex: "#4a8c5a", ico: "🏨" },
+    luggage:   { label: "行李", color: "var(--gold)", hex: "#c79a3a", ico: "🧳" },
   };
 
   /* ---------- Hero / 總覽 ---------- */
