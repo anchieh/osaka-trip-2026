@@ -142,6 +142,19 @@ section { max-width: var(--maxw); margin: 0 auto; padding: 44px 16px; }
 .tl-badge { font-size:.7rem; padding:2px 8px; border-radius:999px; color:#fff; background: var(--dot,#999); font-weight:600; }
 .tl-meta { font-size:.9rem; color: #5c554a; margin:0; }
 .tl-time { color: var(--accent-2); font-weight:700; letter-spacing:.02em; margin-right:2px; }
+
+/* 備案卡（可去可不去）：虛線灰框 */
+.tl-card--opt {
+  background: #faf8f4;
+  border: 1.5px dashed #b3ac9e;
+  border-left: 4px dashed #b3ac9e;
+  box-shadow: none;
+}
+.tl-item--opt::before { border-color: #b3ac9e !important; background: #f0ece4; }
+.tl-optbadge {
+  font-size:.66rem; padding:2px 8px; border-radius:999px; font-weight:600;
+  color:#7a7468; background:transparent; border:1px dashed #b3ac9e; white-space:nowrap;
+}
 .tl-links { margin-top:6px; display:flex; gap:12px; flex-wrap:wrap; }
 .tl-links a { font-size:.82rem; }
 

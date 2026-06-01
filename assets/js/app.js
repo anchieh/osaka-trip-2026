@@ -88,10 +88,11 @@
             it.time ? `<b class="tl-time">${it.time}</b>` : "",
             it.desc || "",
           ].filter(Boolean).join(" ");
-          return `${transit}<div class="tl-item" style="--dot:${t.hex}">
-            <div class="tl-card" style="--dot:${t.hex}">
+          return `${transit}<div class="tl-item${it.optional ? " tl-item--opt" : ""}" style="--dot:${t.hex}">
+            <div class="tl-card${it.optional ? " tl-card--opt" : ""}" style="--dot:${t.hex}">
               <div class="tl-name">${t.ico} ${it.name}
-                <span class="tl-badge" style="--dot:${t.hex}">${t.label}</span></div>
+                <span class="tl-badge" style="--dot:${t.hex}">${t.label}</span>
+                ${it.optional ? '<span class="tl-optbadge">備案・可去可不去</span>' : ""}</div>
               ${meta ? `<p class="tl-meta">${meta}</p>` : ""}
               ${links}
             </div></div>`;
