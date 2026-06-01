@@ -223,6 +223,68 @@
   }
   mapInited = true;
 
+  /* ---------- 目前位置（GPS）---------- */
+  const locStatus = document.getElementById("loc-status");
+  let locWatch = null, locMarker = null, locCircle = null;
+  const setLocStatus = (msg) => { if (locStatus) { locStatus.textContent = msg || ""; locStatus.hidden = !msg; } };
+
+  const LocateControl = L.Control.extend({
+    options: { position: "topleft" },
+    onAdd() {
+      const btn = L.DomUtil.create("button", "leaflet-bar locate-btn");
+      btn.type = "button";
+      btn.title = "顯示我的位置";
+      btn.setAttribute("aria-label", "顯示我的位置");
+      btn.textContent = "📍";
+      L.DomEvent.on(btn, "click", (e) => { L.DomEvent.stop(e); toggleLocate(btn); });
+      this._btn = btn;
+      return btn;
+    },
+  });
+  const locateCtl = new LocateControl();
+  map.addControl(locateCtl);
+
+  function toggleLocate(btn) {
+    if (locWatch !== null) { stopLocate(btn); setLocStatus(""); return; }
+    if (!("geolocation" in navigator)) { setLocStatus("此裝置/瀏覽器不支援定位。"); return; }
+    btn.classList.add("locating");
+    setLocStatus("定位中…請允許瀏覽器的定位權限。");
+    locWatch = navigator.geolocation.watchPosition(
+      (pos) => {
+        btn.classList.remove("locating");
+        btn.classList.add("active");
+        setLocStatus("");
+        const { latitude, longitude, accuracy } = pos.coords;
+        const ll = [latitude, longitude];
+        const first = !locMarker;
+        if (first) {
+          const icon = L.divIcon({ className: "", html: '<div class="me-dot"></div>', iconSize: [18, 18], iconAnchor: [9, 9] });
+          locMarker = L.marker(ll, { icon, zIndexOffset: 1000 }).addTo(map).bindPopup("📍 我的目前位置");
+          locCircle = L.circle(ll, { radius: accuracy, color: "#1e88e5", weight: 1, fillColor: "#1e88e5", fillOpacity: .12 }).addTo(map);
+        } else {
+          locMarker.setLatLng(ll);
+          locCircle.setLatLng(ll).setRadius(accuracy);
+        }
+        if (first) {
+          const inOsaka = latitude > 34.30 && latitude < 34.92 && longitude > 135.08 && longitude < 135.78;
+          if (inOsaka) map.setView(ll, 16);
+          else setLocStatus("目前位置不在大阪行程範圍，地圖底圖可能無法顯示（離線圖磚僅含大阪）。");
+        }
+      },
+      (err) => {
+        stopLocate(btn);
+        setLocStatus(err.code === 1 ? "已拒絕定位權限，請至瀏覽器設定允許定位後再試。" : "無法取得目前位置，請確認已開啟定位。");
+      },
+      { enableHighAccuracy: true, maximumAge: 10000, timeout: 20000 }
+    );
+  }
+  function stopLocate(btn) {
+    if (locWatch !== null) { navigator.geolocation.clearWatch(locWatch); locWatch = null; }
+    if (locMarker) { map.removeLayer(locMarker); locMarker = null; }
+    if (locCircle) { map.removeLayer(locCircle); locCircle = null; }
+    if (btn) btn.classList.remove("active", "locating");
+  }
+
   /* ---------- 周遊卡附錄 ---------- */
   const ap = T.amazingPass;
   document.getElementById("pass-note").textContent = ap.note;
