@@ -55,8 +55,25 @@
           const t = TYPE[it.type] || TYPE.spot;
           const links = it.link
             ? `<div class="tl-links"><a href="${it.link}" target="_blank" rel="noopener">參考連結 ↗</a></div>` : "";
-          const transit = it.transit
-            ? `<div class="tl-transit"><span>${it.transit}</span></div>` : "";
+          let transit = "";
+          if (it.transit && it.transitDetail) {
+            const dt = it.transitDetail;
+            const routeHtml = (dt.route || []).map(s => `<li>${s}</li>`).join("");
+            const notesHtml = (dt.notes || []).map(s => `<li>${s}</li>`).join("");
+            transit = `<div class="tl-transit">
+              <button class="tl-transit-btn" type="button" aria-expanded="false">
+                <span>${it.transit}</span><span class="tl-transit-caret" aria-hidden="true">▾</span>
+              </button>
+              <div class="tl-transit-detail" hidden>
+                <button class="tl-transit-close" type="button" aria-label="關閉">✕</button>
+                <div class="tl-transit-title">${it.transit}</div>
+                ${routeHtml ? `<div class="ttd-sec"><h5>🚉 交通動線</h5><ol>${routeHtml}</ol></div>` : ""}
+                ${notesHtml ? `<div class="ttd-sec"><h5>⚠️ 注意事項</h5><ul>${notesHtml}</ul></div>` : ""}
+              </div>
+            </div>`;
+          } else if (it.transit) {
+            transit = `<div class="tl-transit"><span>${it.transit}</span></div>`;
+          }
           const meta = [
             it.time ? `<b class="tl-time">${it.time}</b>` : "",
             it.desc || "",
@@ -71,6 +88,25 @@
         }).join("")}
       </div>`;
     daysWrap.appendChild(sec);
+  });
+
+  // 交通提示：點擊展開詳細動線/注意事項，✕ 關閉
+  daysWrap.addEventListener("click", (e) => {
+    const closeBtn = e.target.closest(".tl-transit-close");
+    if (closeBtn) {
+      const detail = closeBtn.closest(".tl-transit-detail");
+      detail.setAttribute("hidden", "");
+      const b = detail.parentElement.querySelector(".tl-transit-btn");
+      if (b) { b.setAttribute("aria-expanded", "false"); b.classList.remove("open"); }
+      return;
+    }
+    const btn = e.target.closest(".tl-transit-btn");
+    if (btn) {
+      const detail = btn.parentElement.querySelector(".tl-transit-detail");
+      const willOpen = detail.hasAttribute("hidden");
+      if (willOpen) { detail.removeAttribute("hidden"); btn.setAttribute("aria-expanded", "true"); btn.classList.add("open"); }
+      else { detail.setAttribute("hidden", ""); btn.setAttribute("aria-expanded", "false"); btn.classList.remove("open"); }
+    }
   });
 
   const prevBtn = document.getElementById("prev-day");
