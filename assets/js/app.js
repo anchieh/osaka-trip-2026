@@ -55,8 +55,11 @@
       <div class="timeline">
         ${d.items.map(it => {
           const t = TYPE[it.type] || TYPE.spot;
-          const links = it.link
-            ? `<div class="tl-links"><a href="${it.link}" target="_blank" rel="noopener">參考連結 ↗</a></div>` : "";
+          const linkList = [];
+          if (it.link) linkList.push({ url: it.link, text: "參考連結" });
+          if (it.links) it.links.forEach(l => linkList.push({ url: l.url, text: l.text || "連結" }));
+          const links = linkList.length
+            ? `<div class="tl-links">${linkList.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.text} ↗</a>`).join("")}</div>` : "";
           let transit = "";
           if (it.transit && it.transitDetail) {
             const dt = it.transitDetail;
