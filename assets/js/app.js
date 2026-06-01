@@ -142,7 +142,10 @@
   /* ---------- 地圖 ---------- */
   const legend = Object.values(TYPE)
     .map(t => `<span><i style="background:${t.hex}"></i>${t.ico} ${t.label}</span>`).join("");
-  document.getElementById("map-legend").innerHTML = legend;
+  const lineLegend =
+    `<span><i style="background:#1e88e5;width:20px;height:4px;border-radius:2px"></i>步行（沿街真實路徑）</span>` +
+    `<span><i style="width:20px;height:0;border-radius:0;border-top:3px dashed #d6485f"></i>電車／其他（示意）</span>`;
+  document.getElementById("map-legend").innerHTML = legend + lineLegend;
 
   const map = L.map("map", { scrollWheelZoom: false, minZoom: 10, maxZoom: 16 })
     .setView([34.67, 135.50], 11);
@@ -165,12 +168,28 @@
   });
 
   const dayGroups = [];
+  const WALK = window.WALK_ROUTES || {};
+  const segKey = (a, b) => `${a[0].toFixed(4)},${a[1].toFixed(4)}->${b[0].toFixed(4)},${b[1].toFixed(4)}`;
+
   T.days.forEach((d, i) => {
     const group = L.layerGroup().addTo(map);
     const latlngs = [];
+    let prev = null;
     d.items.forEach(it => {
       if (!it.coord) return;
       const t = TYPE[it.type] || TYPE.spot;
+      // 先畫「從上一個點到此點」的連線
+      if (prev) {
+        const isWalk = !!it.transit && it.transit.startsWith("🚶");
+        const geo = isWalk ? WALK[segKey(prev, it.coord)] : null;
+        if (geo) {
+          // 步行：沿街真實路徑（藍色實線）
+          L.polyline(geo, { color: "#1e88e5", weight: 4, opacity: .85, lineCap: "round" }).addTo(group);
+        } else {
+          // 電車/其他：簡潔虛線
+          L.polyline([prev, it.coord], { color: "#d6485f", weight: 2, opacity: .5, dashArray: "6 6" }).addTo(group);
+        }
+      }
       const icon = L.divIcon({
         className: "",
         html: `<div style="background:${t.hex};width:26px;height:26px;border-radius:50% 50% 50% 0;
@@ -188,11 +207,8 @@
       );
       m.addTo(group);
       latlngs.push(it.coord);
+      prev = it.coord;
     });
-    // 當日連線
-    if (latlngs.length > 1) {
-      L.polyline(latlngs, { color: "#d6485f", weight: 2, opacity: .5, dashArray: "6 6" }).addTo(group);
-    }
     dayGroups.push({ group, latlngs, center: d.center });
   });
 
