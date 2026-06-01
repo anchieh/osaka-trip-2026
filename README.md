@@ -1,5 +1,9 @@
 # 2026 大阪自由行 ・ 互動行程視覺化
 
+[![開啟網站](https://img.shields.io/badge/%F0%9F%97%BE_開啟行程網站-anchieh.github.io-d6485f?style=for-the-badge)](https://anchieh.github.io/osaka-trip-2026/)
+
+> 🔗 **線上瀏覽：https://anchieh.github.io/osaka-trip-2026/**
+
 2026/6/6–6/10 日本大阪自由行（5 天 4 夜）的互動式網頁行程：行程總覽、逐日時間軸、地圖動線，以及大阪周遊卡免費景點附錄。
 
 純靜態網站，**可離線瀏覽**（PWA + Service Worker），適合直接放到 GitHub Pages 等公開靜態空間。
