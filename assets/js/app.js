@@ -9,6 +9,7 @@
     food:      { label: "餐食", color: "var(--c-food)", hex: "#e0892b", ico: "🍜" },
     hotel:     { label: "住宿", color: "var(--c-hotel)", hex: "#4a8c5a", ico: "🏨" },
     luggage:   { label: "行李", color: "var(--gold)", hex: "#c79a3a", ico: "🧳" },
+    tip:       { label: "攻略", color: "#7c5cd2", hex: "#7c5cd2", ico: "🎯" },
   };
 
   /* ---------- Hero / 總覽 ---------- */
