@@ -45,7 +45,7 @@ a { color: var(--accent-2); }
 }
 .nav__brand { font-weight: 800; letter-spacing: .04em; white-space: nowrap; }
 .nav__brand small { display:block; font-weight:500; color: var(--muted); font-size:.72rem; letter-spacing:.02em; }
-.nav__links { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
+.nav__links { display: flex; gap: 6px; flex-wrap: wrap; }
 .nav__links a {
   text-decoration: none; color: var(--ink); font-size: .9rem;
   padding: 6px 12px; border-radius: 999px; transition: .2s;
@@ -240,7 +240,7 @@ footer { text-align:center; color: var(--muted); font-size:.8rem; padding: 30px 
   .nav__brand, .nav-emergency { flex: 0 0 auto; }
   .nav__brand { font-size: .95rem; }
   .nav__brand small { display: none; }
-  .nav__links { margin-left: auto; min-width: 0; flex-shrink: 1; flex-wrap: nowrap; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .nav__links { min-width: 0; flex-shrink: 1; flex-wrap: nowrap; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .nav__links::-webkit-scrollbar { display: none; }
   .nav__links a { padding: 6px 7px; font-size: .82rem; flex: 0 0 auto; white-space: nowrap; }
   .nav-emergency { padding: 6px 11px; font-size: .8rem; }
@@ -250,7 +250,7 @@ footer { text-align:center; color: var(--muted); font-size:.8rem; padding: 30px 
 
 /* ===== 緊急按鈕（導覽列） ===== */
 .nav-emergency {
-  flex: 0 0 auto; text-decoration: none; font-weight: 800; font-size: .85rem;
+  flex: 0 0 auto; margin-left: auto; text-decoration: none; font-weight: 800; font-size: .85rem;
   background: var(--accent); color: #fff; padding: 7px 14px; border-radius: 999px;
   white-space: nowrap; box-shadow: var(--shadow); letter-spacing: .03em; transition: .15s;
 }
