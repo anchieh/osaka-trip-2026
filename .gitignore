@@ -1,0 +1,10 @@
+# OS / 編輯器
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# 暫存
+*.tmp
+*.log

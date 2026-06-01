@@ -1,0 +1,14 @@
+{
+  "name": "2026 大阪自由行",
+  "short_name": "大阪行程",
+  "description": "2026/6/6–6/10 日本大阪自由行 5 天 4 夜互動行程與地圖。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf7f0",
+  "theme_color": "#d6485f",
+  "lang": "zh-Hant",
+  "icons": [
+    { "src": "./assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

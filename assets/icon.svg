@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#fbf7f0"/>
+  <circle cx="256" cy="190" r="120" fill="#d6485f"/>
+  <circle cx="256" cy="190" r="120" fill="#fff" opacity="0.0"/>
+  <path d="M256 70a120 120 0 0 1 0 240 120 120 0 0 1 0-240z" fill="#d6485f"/>
+  <circle cx="300" cy="150" r="92" fill="#fff" opacity="0.18"/>
+  <g fill="#fff">
+    <path d="M256 360c-66 0-120 30-120 30v40h240v-40s-54-30-120-30z" opacity="0.9"/>
+  </g>
+  <text x="256" y="215" font-family="sans-serif" font-size="120" font-weight="700"
+        text-anchor="middle" fill="#fff">大</text>
+</svg>

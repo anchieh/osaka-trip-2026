@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 大阪自由行 ・ 6/6–6/10</title>
+  <meta name="description" content="2026/6/6–6/10 日本大阪自由行 5 天 4 夜互動行程：逐日時間軸與地圖動線。" />
+  <meta name="theme-color" content="#d6485f" />
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="stylesheet" href="./assets/vendor/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="nav__brand">大阪自由行<small>2026 / 6 / 6 – 6 / 10</small></div>
+      <div class="nav__links">
+        <a href="#overview-sec">總覽</a>
+        <a href="#itinerary-sec">行程</a>
+        <a href="#map-sec">地圖</a>
+        <a href="#pass-sec">周遊卡</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="jp">OSAKA ・ 大阪</div>
+    <h1>2026 大阪自由行</h1>
+    <p>5 天 4 夜 ・ 難波 ・ 梅田 ・ 海灣 ・ 環球影城</p>
+    <div class="hero__meta" id="hero-meta"></div>
+  </header>
+
+  <section id="overview-sec">
+    <h2 class="section-title"><span class="bar"></span>行程總覽</h2>
+    <p class="section-sub">航班、住宿與行前須知一覽。</p>
+    <div id="overview"></div>
+  </section>
+
+  <section id="itinerary-sec">
+    <h2 class="section-title"><span class="bar"></span>逐日行程</h2>
+    <p class="section-sub">點選日期切換，下方時間軸與地圖會一起連動。</p>
+    <div class="daybar" id="daybar"></div>
+    <div id="days"></div>
+  </section>
+
+  <section id="map-sec">
+    <h2 class="section-title"><span class="bar"></span>地圖動線</h2>
+    <p class="section-sub">顯示目前所選日期的景點與動線；點標記可看詳情並開啟 Google 地圖。</p>
+    <div id="map"></div>
+    <div class="map-legend" id="map-legend"></div>
+    <p class="map-note">＊標記為各點概略位置，非精確門牌；地圖底圖 © OpenStreetMap，已將行程範圍圖磚打包於本站，<strong>離線也能瀏覽</strong>。</p>
+  </section>
+
+  <section id="pass-sec">
+    <h2 class="section-title"><span class="bar"></span>大阪周遊卡 ・ 38 個免費景點</h2>
+    <p class="section-sub">附錄：周遊卡涵蓋的免費景點與一般票價。</p>
+    <div class="pass-note" id="pass-note"></div>
+    <div class="pass-grid" id="pass-grid"></div>
+  </section>
+
+  <footer>
+    2026 大阪自由行 ・ 行程視覺化 ・ 可離線瀏覽
+  </footer>
+
+  <script src="./assets/vendor/leaflet/leaflet.js"></script>
+  <script src="./assets/js/data.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
