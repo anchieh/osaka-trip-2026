@@ -73,12 +73,30 @@
     daysWrap.appendChild(sec);
   });
 
+  const prevBtn = document.getElementById("prev-day");
+  const nextBtn = document.getElementById("next-day");
+  const pagerNow = document.getElementById("pager-now");
+  const lastDay = T.days.length - 1;
+  let currentDay = 0;
   let mapInited = false;
+
   function selectDay(i) {
+    i = Math.max(0, Math.min(lastDay, i));
+    currentDay = i;
     [...daybar.children].forEach((b, j) => b.classList.toggle("active", j === i));
     [...daysWrap.children].forEach((s, j) => s.classList.toggle("active", j === i));
+    // 換頁器狀態
+    pagerNow.textContent = `Day ${T.days[i].n} / ${T.days.length}・${T.days[i].date}`;
+    prevBtn.disabled = i === 0;
+    nextBtn.disabled = i === lastDay;
+    // 將所選日期捲到日期列中央（手機橫向捲動）
+    const ab = daybar.children[i];
+    if (ab) daybar.scrollTo({ left: ab.offsetLeft - daybar.clientWidth / 2 + ab.clientWidth / 2, behavior: "smooth" });
     if (mapInited) focusDay(i);
   }
+
+  prevBtn.onclick = () => selectDay(currentDay - 1);
+  nextBtn.onclick = () => selectDay(currentDay + 1);
 
   /* ---------- 地圖 ---------- */
   const legend = Object.values(TYPE)
