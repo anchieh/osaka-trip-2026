@@ -65,10 +65,15 @@
                 <span>${it.transit}</span><span class="tl-transit-caret" aria-hidden="true">▾</span>
               </button>
               <div class="tl-transit-detail" hidden>
-                <button class="tl-transit-close" type="button" aria-label="關閉">✕</button>
-                <div class="tl-transit-title">${it.transit}</div>
-                ${routeHtml ? `<div class="ttd-sec"><h5>🚉 交通動線</h5><ol>${routeHtml}</ol></div>` : ""}
-                ${notesHtml ? `<div class="ttd-sec"><h5>⚠️ 注意事項</h5><ul>${notesHtml}</ul></div>` : ""}
+                <div class="ttd-head">
+                  <span class="ttd-head-title">🧭 交通詳情</span>
+                  <button class="tl-transit-close" type="button" aria-label="關閉詳情">✕ 關閉</button>
+                </div>
+                <div class="ttd-body">
+                  <div class="tl-transit-title">${it.transit}</div>
+                  ${routeHtml ? `<div class="ttd-sec"><h5>🚉 交通動線</h5><ol>${routeHtml}</ol></div>` : ""}
+                  ${notesHtml ? `<div class="ttd-sec"><h5>⚠️ 注意事項</h5><ul>${notesHtml}</ul></div>` : ""}
+                </div>
               </div>
             </div>`;
           } else if (it.transit) {
