@@ -602,7 +602,9 @@ window.TRIP = {
           time: "08:30 開園",
           type: "tip",
           name: "入園動線攻略（先看這張）",
-          desc: "開園前 30–60 分到大門排隊；入園後直奔最熱門園區，午後人潮高峰改玩排隊短的設施或看表演，閉園前 1 小時熱門設施排隊大幅縮短可回刷。",
+          desc: "開園前 30–60 分到大門排隊；入園後直奔最熱門園區，午後人潮高峰改玩排隊短的設施或看表演，閉園前 1 小時熱門設施排隊大幅縮短可回刷。下圖為園區分區與建議順序示意（非比例）。",
+          img: "./assets/usj-map.svg",
+          link: "https://www.usj.co.jp/web/zh/tw/parkguide/map",
           transit: "🚶 大門入園、直奔最深處園區　約 8 分",
           transitDetail: {
             route: [

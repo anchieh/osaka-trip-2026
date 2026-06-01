@@ -145,6 +145,10 @@ section { max-width: var(--maxw); margin: 0 auto; padding: 44px 16px; }
 .tl-links { margin-top:6px; display:flex; gap:12px; flex-wrap:wrap; }
 .tl-links a { font-size:.82rem; }
 
+/* 卡片內嵌圖（如 USJ 園區示意圖）*/
+.tl-imglink { display:block; margin-top:8px; }
+.tl-img { display:block; width:100%; max-width:420px; border:1px solid var(--line); border-radius:10px; }
+
 /* 點到點交通連接 */
 .tl-transit { position: relative; margin: -4px 0 12px; }
 .tl-transit > span {

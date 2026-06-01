@@ -90,6 +90,7 @@
               <div class="tl-name">${t.ico} ${it.name}
                 <span class="tl-badge" style="--dot:${t.hex}">${t.label}</span></div>
               ${meta ? `<p class="tl-meta">${meta}</p>` : ""}
+              ${it.img ? `<a href="${it.img}" target="_blank" rel="noopener" class="tl-imglink"><img class="tl-img" src="${it.img}" alt="${it.name}" loading="lazy"></a>` : ""}
               ${links}
             </div></div>`;
         }).join("")}

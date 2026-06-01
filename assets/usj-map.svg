@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 620" font-family="'Hiragino Sans','Microsoft JhengHei',sans-serif">
+  <defs>
+    <style>
+      .zone { rx:14; ry:14; stroke:#fff; stroke-width:2; }
+      .zname { fill:#23303a; font-size:18px; font-weight:700; }
+      .zsub { fill:#5c6b73; font-size:12px; }
+      .ord { fill:#fff; font-size:15px; font-weight:800; text-anchor:middle; }
+      .ordc { stroke:#fff; stroke-width:2; }
+    </style>
+  </defs>
+
+  <!-- 園區底 -->
+  <rect x="8" y="8" width="804" height="560" rx="28" fill="#eaf3ec" stroke="#cfe0d4" stroke-width="2"/>
+  <text x="28" y="44" fill="#23303a" font-size="22" font-weight="800">USJ 園區分區・建議動線（示意圖）</text>
+  <text x="28" y="66" fill="#8a7a55" font-size="13">＊相對位置示意、非比例精確；實際導航請以官方 App／園區地圖為準。</text>
+
+  <!-- 中央人工湖 -->
+  <ellipse cx="410" cy="330" rx="130" ry="86" fill="#cfe8f2" stroke="#a9d4e6" stroke-width="2"/>
+  <text x="410" y="335" fill="#5b8aa0" font-size="13" text-anchor="middle">中央人工湖</text>
+  <text x="410" y="353" fill="#5b8aa0" font-size="11" text-anchor="middle">（夜間水上秀）</text>
+
+  <!-- 超級任天堂世界（後方西北）-->
+  <rect class="zone" x="40" y="92" width="240" height="92" fill="#5fb85f"/>
+  <text class="zname" x="58" y="130" fill="#ffffff">超級任天堂世界</text>
+  <text class="zsub" x="58" y="152" fill="#eaffea">瑪利歐賽車・洋洋・咚奇剛礦車</text>
+
+  <!-- 哈利波特（後方北）-->
+  <rect class="zone" x="492" y="92" width="288" height="92" fill="#6b5bd2"/>
+  <text class="zname" x="510" y="130" fill="#ffffff">哈利波特魔法世界</text>
+  <text class="zsub" x="510" y="152" fill="#e7e2ff">禁忌之旅・鷹馬・活米村</text>
+
+  <!-- 侏羅紀（西）-->
+  <rect class="zone" x="40" y="262" width="180" height="120" fill="#3f9e7a"/>
+  <text class="zname" x="58" y="312" fill="#ffffff">侏羅紀公園</text>
+  <text class="zsub" x="58" y="334" fill="#e5fff4">飛天翼龍・乘船遊</text>
+
+  <!-- 親善村 大白鯊（西，侏羅紀上方）-->
+  <rect class="zone" x="40" y="200" width="180" height="50" fill="#2a7fa6"/>
+  <text class="zname" x="58" y="232" fill="#ffffff" font-size="16">親善村・大白鯊</text>
+
+  <!-- 紐約／舊金山（中）-->
+  <rect class="zone" x="300" y="438" width="230" height="48" fill="#c98a3a"/>
+  <text class="zname" x="318" y="468" fill="#ffffff" font-size="16">紐約／舊金山區</text>
+
+  <!-- 好萊塢區（南，近入口）-->
+  <rect class="zone" x="300" y="498" width="230" height="56" fill="#d6485f"/>
+  <text class="zname" x="318" y="532" fill="#ffffff">好萊塢區・美夢飛車</text>
+
+  <!-- 小小兵 + 環球奇境（東）-->
+  <rect class="zone" x="560" y="300" width="220" height="150" fill="#e0a92b"/>
+  <text class="zname" x="578" y="340" fill="#ffffff">小小兵樂園</text>
+  <text class="zsub" x="578" y="362" fill="#fff6e0">瘋狂乘車遊</text>
+  <text class="zname" x="578" y="404" fill="#ffffff" font-size="16">環球奇境</text>
+  <text class="zsub" x="578" y="424" fill="#fff6e0">親子・Snoopy／Kitty</text>
+
+  <!-- 入口（南）-->
+  <rect x="560" y="498" width="220" height="56" rx="14" fill="#3a4a52"/>
+  <text x="670" y="524" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">🎡 入口 / 大門</text>
+  <text x="670" y="543" fill="#c9d3d8" font-size="11" text-anchor="middle">出園即環球城市步道</text>
+
+  <!-- 建議順序徽章 -->
+  <g>
+    <circle class="ordc" cx="630" cy="512" r="15" fill="#3a4a52"/><text class="ord" x="630" y="517">1</text>
+    <circle class="ordc" cx="60"  cy="112" r="15" fill="#2f8f2f"/><text class="ord" x="60"  y="117">2</text>
+    <circle class="ordc" cx="512" cy="112" r="15" fill="#4b3bb0"/><text class="ord" x="512" y="117">3</text>
+    <circle class="ordc" cx="318" cy="456" r="15" fill="#a96a1f"/><text class="ord" x="318" y="461">4</text>
+    <circle class="ordc" cx="60"  cy="284" r="15" fill="#2c7d5d"/><text class="ord" x="60"  y="289">5</text>
+    <circle class="ordc" cx="318" cy="520" r="15" fill="#b83149"/><text class="ord" x="318" y="525">6</text>
+    <circle class="ordc" cx="578" cy="322" r="15" fill="#b9881f"/><text class="ord" x="578" y="327">7</text>
+    <circle class="ordc" cx="60"  cy="222" r="15" fill="#1f6285"/><text class="ord" x="60"  y="227">8</text>
+  </g>
+
+  <!-- 圖例 -->
+  <g transform="translate(28,584)">
+    <text x="0" y="0" fill="#5c6b73" font-size="12">建議順序：1 入園 → 2 任天堂 → 3 哈利波特 → 4 午餐 → 5 侏羅紀 → 6 好萊塢 → 7 小小兵 → 8 大白鯊 →（夜間遊行 / 城市步道）</text>
+  </g>
+</svg>
