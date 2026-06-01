@@ -57,12 +57,15 @@
             ? `<div class="tl-links"><a href="${it.link}" target="_blank" rel="noopener">參考連結 ↗</a></div>` : "";
           const transit = it.transit
             ? `<div class="tl-transit"><span>${it.transit}</span></div>` : "";
+          const meta = [
+            it.time ? `<b class="tl-time">${it.time}</b>` : "",
+            it.desc || "",
+          ].filter(Boolean).join(" ");
           return `${transit}<div class="tl-item" style="--dot:${t.hex}">
             <div class="tl-card" style="--dot:${t.hex}">
-              <div class="tl-time">${it.time || ""}</div>
               <div class="tl-name">${t.ico} ${it.name}
                 <span class="tl-badge" style="--dot:${t.hex}">${t.label}</span></div>
-              <p class="tl-desc">${it.desc || ""}</p>
+              ${meta ? `<p class="tl-meta">${meta}</p>` : ""}
               ${links}
             </div></div>`;
         }).join("")}
