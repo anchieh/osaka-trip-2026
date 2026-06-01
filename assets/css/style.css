@@ -251,10 +251,10 @@ footer { text-align:center; color: var(--muted); font-size:.8rem; padding: 30px 
 /* ===== 緊急按鈕（導覽列） ===== */
 .nav-emergency {
   flex: 0 0 auto; margin-left: auto; text-decoration: none; font-weight: 800; font-size: .85rem;
-  background: var(--accent); color: #fff; padding: 7px 14px; border-radius: 999px;
-  white-space: nowrap; box-shadow: var(--shadow); letter-spacing: .03em; transition: .15s;
+  background: transparent; color: #e60026; padding: 5px 14px; border-radius: 999px;
+  border: 2px solid #e60026; white-space: nowrap; letter-spacing: .04em; transition: .15s;
 }
-.nav-emergency:hover { background: #b83149; }
+.nav-emergency:hover { background: #e60026; color: #fff; }
 
 /* ===== 緊急頁面 emergency.html ===== */
 .nav__back { text-decoration: none; color: var(--ink); }
