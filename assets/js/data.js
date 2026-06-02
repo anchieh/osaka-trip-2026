@@ -40,7 +40,7 @@ window.TRIP = {
       center: [34.6680, 135.5010],
       items: [
         {
-          time: "07:45 / 11:30",
+          time: "07:45~11:30",
           type: "flight",
           name: "TPE 桃園 → KIX 關西",
           desc: "虎航 IT710・經濟艙・A320（中型）。",
@@ -48,7 +48,7 @@ window.TRIP = {
           place: "關西國際機場 T1",
         },
         {
-          time: "12:00",
+          time: "12:00~13:00",
           type: "transport",
           name: "南海電鐵 特級 Rapi:t（機場 → 難波）",
           desc: "kkday 購票（1,490 日圓），選位、印 QR code，機場綠色機器取票。機場人工櫃台買 icoca（藍色標示有中文）。",
@@ -70,7 +70,7 @@ window.TRIP = {
           place: "南海難波站",
         },
         {
-          time: "13:00",
+          time: "13:00~13:30",
           type: "hotel",
           name: "大阪難波河畔花園飯店（放行李）",
           desc: "抵達難波後，先到飯店寄放行李 / check-in，再輕裝出發逛街。",
@@ -88,7 +88,7 @@ window.TRIP = {
           place: "大阪難波河畔花園飯店",
         },
         {
-          time: "午餐",
+          time: "13:30~15:30",
           type: "spot",
           name: "堀江（Orange Street）｜午餐・逛街",
           desc: "距飯店徒步約 10 分，靠近美國村但風格成熟、文青：精緻家具、咖啡廳與潮流服飾，假日逛起來舒適。在此午餐並逛街。",
@@ -107,7 +107,7 @@ window.TRIP = {
           place: "堀江 Orange Street",
         },
         {
-          time: "順遊",
+          time: "",
           type: "spot",
           name: "美國村・三角公園",
           optional: true,
@@ -115,7 +115,7 @@ window.TRIP = {
           transit: "🚶 堀江旁　約 3 分 ・ 免費",
         },
         {
-          time: "下午",
+          time: "15:30~17:30",
           type: "spot",
           name: "道頓堀・心齋橋・大丸百貨",
           desc: "經典跑跑人地標、藥妝服飾百貨齊全；大丸百貨可逛。沿途吃章魚燒，找『心齋橋關東煮婆婆』嚐在地關東煮。",
@@ -135,7 +135,7 @@ window.TRIP = {
           place: "道頓堀",
         },
         {
-          time: "傍晚",
+          time: "17:30~18:30",
           type: "spot",
           name: "道頓堀觀光船",
           desc: "傍晚搭乘，繞行道頓堀川看兩岸招牌與點燈。使用環球影城附的周遊券（1/3）。",
@@ -153,7 +153,7 @@ window.TRIP = {
           place: "道頓堀觀光船",
         },
         {
-          time: "順遊",
+          time: "",
           type: "spot",
           name: "法善寺橫丁",
           optional: true,
@@ -161,7 +161,7 @@ window.TRIP = {
           transit: "🚶 道頓堀旁　約 2 分 ・ 免費",
         },
         {
-          time: "休息",
+          time: "",
           type: "spot",
           name: "難波 Parks 空中庭園",
           optional: true,
@@ -169,7 +169,7 @@ window.TRIP = {
           transit: "🚶 難波站旁　約 5 分 ・ 免費",
         },
         {
-          time: "晚餐",
+          time: "18:30~20:30",
           type: "food",
           name: "超市採買自煮（和牛・火鍋）",
           desc: "玉出超市 堀江店 / 難波大型超市（株）丸八商店（離飯店較遠）。買食材回飯店自煮。",
@@ -190,7 +190,7 @@ window.TRIP = {
           place: "玉出超市 堀江店",
         },
         {
-          time: "住宿",
+          time: "20:30~22:00",
           type: "hotel",
           name: "大阪難波河畔花園飯店",
           desc: "Day 1–2 住宿。",
@@ -221,7 +221,7 @@ window.TRIP = {
       center: [34.7050, 135.5050],
       items: [
         {
-          time: "出發",
+          time: "07:30",
           type: "hotel",
           name: "大阪難波河畔花園飯店",
           desc: "今日出發點（前一晚住宿）。",
@@ -229,14 +229,14 @@ window.TRIP = {
           place: "大阪難波河畔花園飯店",
         },
         {
-          time: "7:30–8:30",
+          time: "07:30~08:30",
           type: "food",
           name: "早餐 自煮",
           desc: "在飯店內自煮。",
           place: "大阪難波河畔花園飯店",
         },
         {
-          time: "上午",
+          time: "09:00~10:30",
           type: "spot",
           name: "大阪城天守閣",
           desc: "雄偉日本三大名城。今天啟用大阪周遊卡一日券（¥686），天守閣免費入場。",
@@ -257,7 +257,7 @@ window.TRIP = {
           place: "大阪城天守閣",
         },
         {
-          time: "上午",
+          time: "10:30~11:00",
           type: "spot",
           name: "大阪城御座船",
           desc: "在天守閣前內護城河搭乘金光閃閃的御座船，從水上仰望本丸石垣與天守。周遊卡可免費搭。",
@@ -273,7 +273,7 @@ window.TRIP = {
           place: "大阪城御座船",
         },
         {
-          time: "上午",
+          time: "11:30~12:30",
           type: "spot",
           name: "大阪生活今昔館",
           desc: "重現江戶時代街景，可換和服拍照。",
@@ -293,7 +293,7 @@ window.TRIP = {
           place: "大阪生活今昔館",
         },
         {
-          time: "午餐",
+          time: "12:30~13:30",
           type: "food",
           name: "東梅田 阪急 32 番街（KYK 豬排飯）",
           desc: "28 樓可邊用餐邊看景。KYK 炸豬排為人氣店。",
@@ -309,7 +309,7 @@ window.TRIP = {
           place: "阪急 32 番街",
         },
         {
-          time: "順遊",
+          time: "",
           type: "food",
           name: "新梅田食道街",
           optional: true,
@@ -317,7 +317,7 @@ window.TRIP = {
           transit: "🚶 梅田站旁　約 3 分 ・ 免費",
         },
         {
-          time: "順遊",
+          time: "",
           type: "spot",
           name: "MASUNAGA1905 增永眼鏡",
           optional: true,
@@ -325,7 +325,7 @@ window.TRIP = {
           transit: "🚶 阪急梅田站／JR 大阪站旁　順路 ・ 免費",
         },
         {
-          time: "午後",
+          time: "13:30~14:00",
           type: "spot",
           name: "梅田 LOFT 文具（阪神梅田本店 6F）",
           desc: "阪神梅田本店 6 樓的 LOFT，文具、雜貨、生活小物超好逛，文具控必收。",
@@ -338,7 +338,7 @@ window.TRIP = {
           place: "阪神梅田本店 LOFT",
         },
         {
-          time: "休息",
+          time: "",
           type: "food",
           name: "中崎町 文青咖啡街",
           optional: true,
@@ -346,7 +346,7 @@ window.TRIP = {
           transit: "🚶 梅田徒步　約 10 分 ・ 免費",
         },
         {
-          time: "午後",
+          time: "14:00~15:00",
           type: "spot",
           name: "梅田藍天大廈 空中庭園展望台",
           desc: "圓形露天觀景台（10:00–22:30）。09:30–15:00 持大阪周遊卡免費入場，記得在時段內進場。",
@@ -362,7 +362,7 @@ window.TRIP = {
           place: "梅田藍天大廈",
         },
         {
-          time: "順遊",
+          time: "",
           type: "food",
           name: "瀧見小路（復古食堂街）",
           optional: true,
@@ -370,7 +370,7 @@ window.TRIP = {
           transit: "🚶 梅田藍天大廈地下　約 1 分 ・ 免費",
         },
         {
-          time: "晚餐",
+          time: "16:00~18:30",
           type: "food",
           name: "商店街買食物・回飯店煮",
           desc: "回難波商店街採買食材，回飯店自煮晚餐。",
@@ -387,7 +387,7 @@ window.TRIP = {
           place: "難波商店街",
         },
         {
-          time: "住宿",
+          time: "18:30~21:00",
           type: "hotel",
           name: "大阪難波河畔花園飯店",
           desc: "Day 1–2 住宿。",
@@ -413,7 +413,7 @@ window.TRIP = {
       center: [34.6620, 135.4640],
       items: [
         {
-          time: "出發",
+          time: "08:00",
           type: "hotel",
           name: "大阪難波河畔花園飯店",
           desc: "今日出發點（前一晚住宿）。今天換住櫻島利蓓爾：退房後行李先寄放本飯店櫃台，上午逛完難波再回來取，帶往海灣，於大阪港站置物櫃暫放。",
@@ -421,7 +421,7 @@ window.TRIP = {
           place: "大阪難波河畔花園飯店",
         },
         {
-          time: "早餐",
+          time: "08:30~09:30",
           type: "food",
           name: "木津市場 / 黑門市場",
           desc: "大國町站附近，內行人市場，海鮮丼飯划算。",
@@ -442,7 +442,7 @@ window.TRIP = {
           place: "木津市場",
         },
         {
-          time: "上午",
+          time: "10:00~10:30",
           type: "spot",
           name: "難波八阪神社",
           desc: "超震撼巨型獅子殿，祈福打卡聖地。",
@@ -461,7 +461,7 @@ window.TRIP = {
           place: "難波八阪神社",
         },
         {
-          time: "中午",
+          time: "10:30~11:00",
           type: "hotel",
           name: "回河畔花園飯店取行李",
           desc: "上午行程都在難波附近，逛完順路回飯店取出寄放的行李，準備前往海灣（天保山）。",
@@ -479,7 +479,7 @@ window.TRIP = {
           place: "大阪難波河畔花園飯店",
         },
         {
-          time: "中午",
+          time: "11:30~12:00",
           type: "luggage",
           name: "行李寄放・大阪港站置物櫃",
           desc: "帶行李搭地鐵到大阪港，寄放置物櫃後輕裝玩海灣（聖瑪麗亞號・海遊館・摩天輪）。",
@@ -500,7 +500,7 @@ window.TRIP = {
           place: "大阪港站",
         },
         {
-          time: "午後",
+          time: "12:30~13:30",
           type: "spot",
           name: "帆船型觀光船 聖瑪麗亞號",
           desc: "天保山港灣的哥倫布帆船造型觀光船，繞行大阪港灣，看跨海大橋與港景。使用環球影城附的周遊券（2/3）。",
@@ -519,7 +519,7 @@ window.TRIP = {
           place: "聖瑪麗亞號乘船處",
         },
         {
-          time: "15:00 後",
+          time: "15:00~16:30",
           type: "spot",
           name: "海遊館",
           desc: "巨型鯨鯊水槽，室內雨天也適合。kkday 先購門票（指定 15:00 以後入場）。",
@@ -538,7 +538,7 @@ window.TRIP = {
           place: "海遊館",
         },
         {
-          time: "午後",
+          time: "16:30~17:00",
           type: "spot",
           name: "天保山大摩天輪",
           desc: "10:00–20:00，高 112.5m 的海灣地標摩天輪，可俯瞰大阪港與明石海峽。使用環球影城附的周遊券（3/3）。",
@@ -554,7 +554,7 @@ window.TRIP = {
           place: "天保山大摩天輪",
         },
         {
-          time: "晚餐",
+          time: "17:00~18:30",
           type: "food",
           name: "天保山市場街（なにわ食いしんぼ横丁）",
           desc: "天保山 Marketplace 內，重現 1965 年大阪街景的懷舊美食横丁——章魚燒、蛋包飯、可樂餅、串炸等庶民美食一次嚐，就在海遊館旁。",
@@ -567,7 +567,7 @@ window.TRIP = {
           place: "天保山市場街",
         },
         {
-          time: "晚間",
+          time: "18:30~19:00",
           type: "luggage",
           name: "取行李・大阪港站",
           desc: "晚餐後回大阪港站取回寄放的行李，準備搭車前往櫻島。",
@@ -580,7 +580,7 @@ window.TRIP = {
           place: "大阪港站",
         },
         {
-          time: "住宿",
+          time: "19:00~21:00",
           type: "hotel",
           name: "大阪利蓓爾飯店（USJ・櫻島站）",
           desc: "門口就是 JR 櫻島車站，一站到環球影城。可泡湯。飯店早餐約台幣 880／¥880，入住再決定。",
@@ -615,7 +615,7 @@ window.TRIP = {
       center: [34.6654, 135.4323],
       items: [
         {
-          time: "出發",
+          time: "08:00",
           type: "hotel",
           name: "大阪利蓓爾飯店（USJ・櫻島站）",
           desc: "今日出發點（前一晚住宿）。",
@@ -623,7 +623,7 @@ window.TRIP = {
           place: "大阪利蓓爾飯店",
         },
         {
-          time: "09:00–21:00",
+          time: "09:00~21:00",
           type: "spot",
           name: "日本環球影城（USJ）",
           desc: "營業時間每日不同（約 09:00–21:00），請以 USJ 官網公告為準。票券：1 日券 + 超級任天堂世界™ 入場 + 關西樂享周遊券，並已加購 klook 快速通關（Express Pass）。必玩瑪利歐與哈利波特園區。",
@@ -645,7 +645,7 @@ window.TRIP = {
         },
 
         {
-          time: "08:30 開園",
+          time: "08:00~08:30",
           type: "tip",
           name: "入園動線攻略（先看這張）",
           desc: "已購快速通關（Express Pass）：把它用在最想玩、平日排最久的設施（如飛天翼龍、瑪利歐賽車）。開園前 30–60 分到大門；超級任天堂世界一開園先進（並用 App 抽整理券）；午後高峰改玩排隊短的設施或看表演，閉園前 1 小時熱門設施排隊大幅縮短可回刷。園區地圖請參下方官方連結。",
@@ -669,7 +669,7 @@ window.TRIP = {
           place: "USJ 大門",
         },
         {
-          time: "08:40–10:30",
+          time: "08:30~10:30",
           type: "spot",
           name: "超級任天堂世界（SNW）",
           desc: "一開園先衝。瑪利歐賽車 庫巴的挑戰書（排隊約 60–100 分）、洋洋冒險（約 30–50 分）、咚奇剛礦車（約 60–90 分，新設施）。可玩鑰匙挑戰、奇諾比奧咖啡館用餐。",
@@ -687,7 +687,7 @@ window.TRIP = {
           place: "超級任天堂世界",
         },
         {
-          time: "10:40–12:30",
+          time: "10:30~12:30",
           type: "spot",
           name: "哈利波特魔法世界",
           desc: "禁忌之旅 Forbidden Journey（排隊約 50–80 分）、鷹馬的飛行（約 30–50 分）。活米村逛街、買魔杖、喝奶油啤酒、拍霍格華茲城堡。",
@@ -704,7 +704,7 @@ window.TRIP = {
           place: "哈利波特魔法世界",
         },
         {
-          time: "12:30–13:30",
+          time: "12:30~13:30",
           type: "food",
           name: "午餐（園區餐廳）",
           desc: "避開 12:00 高峰，約 12:30 後用餐較不用久候。三廣場餐廳、侏羅紀/好萊塢區餐廳都可選。",
@@ -716,7 +716,7 @@ window.TRIP = {
           place: "USJ 園區餐廳",
         },
         {
-          time: "13:40–14:50",
+          time: "13:30~15:00",
           type: "spot",
           name: "侏羅紀公園・飛天翼龍",
           desc: "飛天翼龍 The Flying Dinosaur（排隊約 60–100 分，園區最刺激）、侏羅紀公園乘船遊。",
@@ -731,7 +731,7 @@ window.TRIP = {
           place: "侏羅紀公園",
         },
         {
-          time: "15:00–16:00",
+          time: "15:00~16:00",
           type: "spot",
           name: "好萊塢區・好萊塢美夢飛車",
           desc: "好萊塢美夢飛車 Hollywood Dream the Ride（排隊約 40–70 分），可選逆向 Backdrop。季節限定 XR/聯名（如 Cool Japan）也多在此區，依官方為準。",
@@ -743,7 +743,7 @@ window.TRIP = {
           place: "好萊塢區",
         },
         {
-          time: "16:10–17:00",
+          time: "16:00~17:00",
           type: "spot",
           name: "小小兵樂園",
           desc: "小小兵瘋狂乘車遊 Minion Mayhem（排隊約 40–70 分）、冰凍射擊遊戲。周邊商品與美食豐富。",
@@ -755,7 +755,7 @@ window.TRIP = {
           place: "小小兵樂園",
         },
         {
-          time: "17:10–18:00",
+          time: "17:00~18:00",
           type: "spot",
           name: "大白鯊／表演秀",
           desc: "親善村 大白鯊 JAWS（排隊約 20–40 分）。傍晚可改看表演秀（如環球奇蹤、季節遊行），避開熱門設施人潮。",
@@ -767,7 +767,7 @@ window.TRIP = {
           place: "親善村（大白鯊）",
         },
         {
-          time: "18:30–20:30",
+          time: "18:30~20:30",
           type: "tip",
           name: "夜間遊行・夜景＋回刷熱門",
           desc: "晚間看夜間遊行/燈光秀。閉園前 1 小時，熱門設施（任天堂、飛天翼龍、美夢飛車）排隊常大幅縮短，可把白天沒玩到的回刷。",
@@ -782,7 +782,7 @@ window.TRIP = {
           place: "USJ 園區",
         },
         {
-          time: "20:30–21:00+",
+          time: "20:30~21:30",
           type: "food",
           name: "環球城市步道 晚餐＋購物",
           desc: "出園後在環球城市步道（CityWalk）用晚餐、買伴手禮，避開閉園瞬間的車站人潮。",
@@ -795,7 +795,7 @@ window.TRIP = {
         },
 
         {
-          time: "住宿",
+          time: "21:30~22:00",
           type: "hotel",
           name: "大阪利蓓爾飯店（USJ・櫻島站）",
           desc: "Day 3–4 住宿。",
@@ -826,7 +826,7 @@ window.TRIP = {
       center: [34.4324, 135.2440],
       items: [
         {
-          time: "出發",
+          time: "09:00",
           type: "hotel",
           name: "大阪利蓓爾飯店（USJ・櫻島站）",
           desc: "今日出發點（前一晚住宿）。",
@@ -834,14 +834,14 @@ window.TRIP = {
           place: "大阪利蓓爾飯店",
         },
         {
-          time: "9:00–12:00",
+          time: "09:00~12:00",
           type: "food",
           name: "早餐（7-11 或飯店早餐）",
           desc: "前晚先採買、於飯店吃點東西，或加購飯店早餐（約台幣 880／¥880，入住再決定）；也可在 7-11 便利商店解決。",
           place: "大阪利蓓爾飯店周邊",
         },
         {
-          time: "14:00–18:00",
+          time: "14:00~18:00",
           type: "spot",
           name: "關西機場 購物中心 AEROPLAZA",
           desc: "機場購物中心。",
@@ -863,11 +863,11 @@ window.TRIP = {
           place: "AEROPLAZA",
         },
         {
-          time: "18:30",
+          time: "18:30~19:30",
           type: "transport",
           name: "Check in（機場）",
           desc: "辦理登機。",
-          transit: "🚶 機場航廈內步行 ・ 免費",
+          transit: "🚶 機場航廈內步行　約 10 分 ・ 免費",
           transitDetail: {
             route: [
               "AEROPLAZA → 連絡橋 → T1 航廈 4F 出境大廳。",
@@ -881,7 +881,7 @@ window.TRIP = {
           place: "關西國際機場 T1",
         },
         {
-          time: "21:05 / 23:00",
+          time: "21:05~23:00",
           type: "flight",
           name: "KIX 關西 → TPE 桃園",
           desc: "21:05 起飛，23:00 抵達桃園 T1。",
