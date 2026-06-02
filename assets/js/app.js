@@ -50,6 +50,7 @@
     sec.innerHTML = `
       <div class="day__head">
         <h3>Day ${d.n}・${d.date}（${d.weekday}）${d.title}</h3>
+        ${d.start && d.end ? `<div class="day__time">⏱ 起 ${d.start} ・ 訖 ${d.end}</div>` : ""}
         <p>${d.theme}</p>
       </div>
       <div class="timeline">

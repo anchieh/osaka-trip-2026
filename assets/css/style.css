@@ -123,7 +123,8 @@ section { max-width: var(--maxw); margin: 0 auto; padding: 44px 16px; }
 @keyframes fade { from {opacity:0; transform: translateY(6px);} to {opacity:1; transform:none;} }
 .day__head { margin-bottom: 18px; }
 .day__head h3 { margin:0; font-size:1.25rem; }
-.day__head p { margin:4px 0 0; color: var(--muted); font-size:.9rem; }
+.day__time { display:inline-block; margin:6px 0 2px; font-size:.85rem; font-weight:700; color: var(--accent-2); background:#eef5f6; border:1px solid #d6e6e8; border-radius:999px; padding:3px 12px; }
+.day__head p { margin:6px 0 0; color: var(--muted); font-size:.9rem; }
 
 .timeline { position: relative; margin-left: 8px; padding-left: 26px; }
 .timeline::before {
