@@ -271,7 +271,8 @@ footer { text-align:center; color: var(--muted); font-size:.8rem; padding: 30px 
   .pager-now { min-width: 120px; font-size: .9rem; }
   /* 導覽列維持單行：品牌與 SOS 固定，連結列可橫向捲動 */
   .nav__inner { flex-wrap: nowrap; gap: 6px; padding: 10px 12px; }
-  .nav__brand, .nav-emergency { flex: 0 0 auto; }
+  .nav__brand, .nav-transit, .nav-emergency { flex: 0 0 auto; }
+  .nav-transit { padding: 6px 10px; font-size: .8rem; }
   .nav__brand { font-size: .95rem; }
   .nav__brand small { display: none; }
   .nav__links { min-width: 0; flex-shrink: 1; flex-wrap: nowrap; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -283,12 +284,24 @@ footer { text-align:center; color: var(--muted); font-size:.8rem; padding: 30px 
 }
 
 /* ===== 緊急按鈕（導覽列） ===== */
+.nav-transit {
+  flex: 0 0 auto; margin-left: auto; text-decoration: none; font-weight: 700; font-size: .85rem;
+  background: transparent; color: var(--accent-2); padding: 5px 13px; border-radius: 999px;
+  border: 1.6px solid var(--accent-2); white-space: nowrap; transition: .15s;
+}
+.nav-transit:hover { background: var(--accent-2); color: #fff; }
 .nav-emergency {
-  flex: 0 0 auto; margin-left: auto; text-decoration: none; font-weight: 800; font-size: .85rem;
+  flex: 0 0 auto; text-decoration: none; font-weight: 800; font-size: .85rem;
   background: transparent; color: #e60026; padding: 5px 14px; border-radius: 999px;
   border: 2px solid #e60026; white-space: nowrap; letter-spacing: .04em; transition: .15s;
 }
 .nav-emergency:hover { background: #e60026; color: #fff; }
+
+/* 交通圖單頁 */
+.tmap-credit { font-size: .85rem; color: #6a5d40; background: #fff8ee; border: 1px solid #f0e3c8; border-radius: 10px; padding: 10px 14px; margin: 0 0 14px; }
+.tmap-open { display: inline-block; text-decoration: none; font-weight: 700; font-size: .9rem; color: #fff; background: var(--accent-2); padding: 8px 16px; border-radius: 999px; margin-bottom: 16px; }
+.tmap-wrap { text-align: center; }
+.tmap-img { width: 100%; max-width: 900px; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
 
 /* ===== 緊急頁面 emergency.html ===== */
 .nav__back { text-decoration: none; color: var(--ink); }

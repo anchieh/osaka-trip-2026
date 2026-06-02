@@ -1,11 +1,12 @@
 /* 大阪自由行 — Service Worker：離線可用 + 地圖底圖快取 */
-const APP_CACHE = "osaka-trip-v15";
-const TILE_CACHE = "osaka-tiles-v15";
+const APP_CACHE = "osaka-trip-v16";
+const TILE_CACHE = "osaka-tiles-v16";
 
 const APP_SHELL = [
   "./",
   "./index.html",
   "./emergency.html",
+  "./transit-map.html",
   "./manifest.webmanifest",
   "./assets/tiles-manifest.json",
   "./assets/js/walk-routes.js",
@@ -56,8 +57,8 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
 
-  // 地圖底圖（線上回退）：cache-first，載過就離線可看
-  if (/tile\.openstreetmap\.org$/.test(url.hostname) || /basemaps\.cartocdn\.com$/.test(url.hostname)) {
+  // 地圖底圖（線上回退）+ 外部引用的交通圖：cache-first，載過就離線可看
+  if (/tile\.openstreetmap\.org$/.test(url.hostname) || /basemaps\.cartocdn\.com$/.test(url.hostname) || /\.wp\.com$/.test(url.hostname)) {
     e.respondWith(
       caches.open(TILE_CACHE).then(async (cache) => {
         const hit = await cache.match(e.request);
