@@ -1,6 +1,6 @@
 /* 大阪自由行 — Service Worker：離線可用 + 地圖底圖快取 */
-const APP_CACHE = "osaka-trip-v16";
-const TILE_CACHE = "osaka-tiles-v16";
+const APP_CACHE = "osaka-trip-v17";
+const TILE_CACHE = "osaka-tiles-v17";
 
 const APP_SHELL = [
   "./",
