@@ -47,60 +47,102 @@
     const sec = document.createElement("div");
     sec.className = "day";
     sec.dataset.idx = i;
+    const renderCard = (it) => {
+      const t = TYPE[it.type] || TYPE.spot;
+      const linkList = [];
+      if (it.link) linkList.push({ url: it.link, text: "參考連結" });
+      if (it.links) it.links.forEach(l => linkList.push({ url: l.url, text: l.text || "連結" }));
+      const links = linkList.length
+        ? `<div class="tl-links">${linkList.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.text} ↗</a>`).join("")}</div>` : "";
+      let transit = "";
+      if (it.transit && it.transitDetail) {
+        const dt = it.transitDetail;
+        const routeHtml = (dt.route || []).map(s => `<li>${s}</li>`).join("");
+        const notesHtml = (dt.notes || []).map(s => `<li>${s}</li>`).join("");
+        transit = `<div class="tl-transit">
+          <button class="tl-transit-btn" type="button" aria-expanded="false">
+            <span>${it.transit}</span><span class="tl-transit-caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="tl-transit-detail" hidden>
+            <div class="ttd-head">
+              <span class="ttd-head-title">🧭 交通詳情</span>
+              <button class="tl-transit-close" type="button" aria-label="關閉詳情">✕ 關閉</button>
+            </div>
+            <div class="ttd-body">
+              <div class="tl-transit-title">${it.transit}</div>
+              ${routeHtml ? `<div class="ttd-sec"><h5>🚉 交通動線</h5><ol>${routeHtml}</ol></div>` : ""}
+              ${notesHtml ? `<div class="ttd-sec"><h5>⚠️ 注意事項</h5><ul>${notesHtml}</ul></div>` : ""}
+            </div>
+          </div>
+        </div>`;
+      } else if (it.transit) {
+        transit = `<div class="tl-transit"><span>${it.transit}</span></div>`;
+      }
+      const meta = [
+        it.time ? `<b class="tl-time">${it.time}</b>` : "",
+        it.desc || "",
+      ].filter(Boolean).join(" ");
+      return `${transit}<div class="tl-item${it.optional ? " tl-item--opt" : ""}" style="--dot:${t.hex}">
+        <div class="tl-card${it.optional ? " tl-card--opt" : ""}" style="--dot:${t.hex}">
+          <div class="tl-name">${t.ico} ${it.name}
+            <span class="tl-badge" style="--dot:${t.hex}">${t.label}</span>
+            ${it.optional ? '<span class="tl-optbadge">備案・可去可不去</span>' : ""}</div>
+          ${meta ? `<p class="tl-meta">${meta}</p>` : ""}
+          ${links}
+        </div></div>`;
+    };
+
+    const renderUsjCard = (it) => {
+      const z = (T.usjZones && T.usjZones[it.zone]) || { label: it.zone, hex: "#999" };
+      return `<div class="usj-card" data-zone="${it.zone}" data-dur="${it.dur}" data-name="${it.name}" style="--zhex:${z.hex}">
+        <div class="usj-walk" hidden></div>
+        <div class="usj-card__row">
+          <span class="usj-handle" aria-label="拖曳排序" title="拖曳排序">⠿</span>
+          <span class="usj-zone">${z.label}</span>
+          <div class="usj-body">
+            <div class="usj-name">${it.name}</div>
+            <div class="usj-meta"><b class="usj-time">—</b> ・ 約 ${it.dur} 分　<span class="usj-toggle">詳情 ▾</span></div>
+            <div class="usj-detail" hidden>${it.desc || ""}</div>
+          </div>
+        </div>
+      </div>`;
+    };
+
+    // 組裝時間軸；usj 日把連續「有 zone/dur」的設施包成可拖曳排程器
+    let tl = "";
+    const items = d.items;
+    let k = 0;
+    while (k < items.length) {
+      const it = items[k];
+      if (d.usj && it.zone && it.dur) {
+        const run = [];
+        while (k < items.length && items[k].zone && items[k].dur) { run.push(items[k]); k++; }
+        tl += `<div class="usj-planner">
+          <div class="usj-ctrl">
+            <label class="usj-startlbl">🎢 開園 <input type="time" id="usj-start" value="${d.start || "08:30"}"></label>
+            <span class="usj-endlbl">預估結束 <b id="usj-endtime">—</b></span>
+            <button type="button" id="usj-reset" class="usj-reset">↺ 重設順序</button>
+          </div>
+          <p class="usj-hint">拖曳 <b>⠿</b> 調整單項順序，時間依「各設施耗時＋區間步行」自動重算（順序已存於本機）。</p>
+          <div class="usj-list" id="usj-list">${run.map(renderUsjCard).join("")}</div>
+        </div>`;
+      } else {
+        tl += renderCard(it);
+        k++;
+      }
+    }
+
     sec.innerHTML = `
       <div class="day__head">
         <h3>Day ${d.n}・${d.date}（${d.weekday}）${d.title}</h3>
         ${d.start && d.end ? `<div class="day__time">⏱ 起 ${d.start} ・ 訖 ${d.end}</div>` : ""}
         <p>${d.theme}</p>
       </div>
-      <div class="timeline">
-        ${d.items.map(it => {
-          const t = TYPE[it.type] || TYPE.spot;
-          const linkList = [];
-          if (it.link) linkList.push({ url: it.link, text: "參考連結" });
-          if (it.links) it.links.forEach(l => linkList.push({ url: l.url, text: l.text || "連結" }));
-          const links = linkList.length
-            ? `<div class="tl-links">${linkList.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.text} ↗</a>`).join("")}</div>` : "";
-          let transit = "";
-          if (it.transit && it.transitDetail) {
-            const dt = it.transitDetail;
-            const routeHtml = (dt.route || []).map(s => `<li>${s}</li>`).join("");
-            const notesHtml = (dt.notes || []).map(s => `<li>${s}</li>`).join("");
-            transit = `<div class="tl-transit">
-              <button class="tl-transit-btn" type="button" aria-expanded="false">
-                <span>${it.transit}</span><span class="tl-transit-caret" aria-hidden="true">▾</span>
-              </button>
-              <div class="tl-transit-detail" hidden>
-                <div class="ttd-head">
-                  <span class="ttd-head-title">🧭 交通詳情</span>
-                  <button class="tl-transit-close" type="button" aria-label="關閉詳情">✕ 關閉</button>
-                </div>
-                <div class="ttd-body">
-                  <div class="tl-transit-title">${it.transit}</div>
-                  ${routeHtml ? `<div class="ttd-sec"><h5>🚉 交通動線</h5><ol>${routeHtml}</ol></div>` : ""}
-                  ${notesHtml ? `<div class="ttd-sec"><h5>⚠️ 注意事項</h5><ul>${notesHtml}</ul></div>` : ""}
-                </div>
-              </div>
-            </div>`;
-          } else if (it.transit) {
-            transit = `<div class="tl-transit"><span>${it.transit}</span></div>`;
-          }
-          const meta = [
-            it.time ? `<b class="tl-time">${it.time}</b>` : "",
-            it.desc || "",
-          ].filter(Boolean).join(" ");
-          return `${transit}<div class="tl-item${it.optional ? " tl-item--opt" : ""}" style="--dot:${t.hex}">
-            <div class="tl-card${it.optional ? " tl-card--opt" : ""}" style="--dot:${t.hex}">
-              <div class="tl-name">${t.ico} ${it.name}
-                <span class="tl-badge" style="--dot:${t.hex}">${t.label}</span>
-                ${it.optional ? '<span class="tl-optbadge">備案・可去可不去</span>' : ""}</div>
-              ${meta ? `<p class="tl-meta">${meta}</p>` : ""}
-              ${links}
-            </div></div>`;
-        }).join("")}
-      </div>`;
+      <div class="timeline">${tl}</div>`;
     daysWrap.appendChild(sec);
   });
+
+  initUSJ();
 
   // 交通提示：點擊展開詳細動線/注意事項，✕ 關閉
   daysWrap.addEventListener("click", (e) => {
@@ -118,8 +160,63 @@
       const willOpen = detail.hasAttribute("hidden");
       if (willOpen) { detail.removeAttribute("hidden"); btn.setAttribute("aria-expanded", "true"); btn.classList.add("open"); }
       else { detail.setAttribute("hidden", ""); btn.setAttribute("aria-expanded", "false"); btn.classList.remove("open"); }
+      return;
+    }
+    // USJ 設施卡：點「詳情」展開/收合
+    const tog = e.target.closest(".usj-toggle, .usj-body");
+    if (tog) {
+      const body = tog.closest(".usj-body");
+      const det = body && body.querySelector(".usj-detail");
+      if (det) {
+        const open = det.hasAttribute("hidden");
+        det.toggleAttribute("hidden", !open);
+        const tg = body.querySelector(".usj-toggle");
+        if (tg) tg.textContent = open ? "收合 ▴" : "詳情 ▾";
+      }
     }
   });
+
+  /* ---------- Day 4 USJ 拖曳排程器 ---------- */
+  function initUSJ() {
+    const list = document.getElementById("usj-list");
+    if (!list || typeof Sortable === "undefined") return;
+    const startEl = document.getElementById("usj-start");
+    const endEl = document.getElementById("usj-endtime");
+    const resetEl = document.getElementById("usj-reset");
+    const usjDay = T.days.find(d => d.usj) || {};
+    const originalNames = (usjDay.items || []).filter(it => it.zone && it.dur).map(it => it.name);
+    const LS = "usjOrder-v1";
+    const walkMin = (a, b) => a === b ? 0 : (T.usjWalk[a + "-" + b] ?? T.usjWalk[b + "-" + a] ?? 8);
+    const fmt = (min) => { min = Math.round(min / 5) * 5; const h = Math.floor(min / 60), m = min % 60; return String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0"); };
+    const applyOrder = (names) => names.forEach(n => { const c = [...list.children].find(x => x.dataset.name === n); if (c) list.appendChild(c); });
+
+    function recompute() {
+      const parts = (startEl.value || "08:30").split(":").map(Number);
+      let cur = parts[0] * 60 + parts[1];
+      let prevZone = null;
+      [...list.querySelectorAll(".usj-card")].forEach((card, idx) => {
+        const zone = card.dataset.zone, dur = +card.dataset.dur;
+        const walkEl = card.querySelector(".usj-walk");
+        if (idx === 0) { walkEl.hidden = true; }
+        else { const w = walkMin(prevZone, zone); walkEl.hidden = false; walkEl.textContent = "🚶 步行 " + w + " 分"; cur += w; }
+        card.querySelector(".usj-time").textContent = fmt(cur) + "~" + fmt(cur + dur);
+        cur += dur; prevZone = zone;
+      });
+      if (endEl) endEl.textContent = fmt(cur);
+      try { localStorage.setItem(LS, JSON.stringify([...list.querySelectorAll(".usj-card")].map(c => c.dataset.name))); } catch (err) {}
+    }
+
+    try { const saved = JSON.parse(localStorage.getItem(LS) || "null"); if (Array.isArray(saved)) applyOrder(saved); } catch (err) {}
+    new Sortable(list, { handle: ".usj-handle", animation: 150, ghostClass: "sortable-ghost", chosenClass: "sortable-chosen", onEnd: recompute });
+    startEl.addEventListener("input", recompute);
+    resetEl.addEventListener("click", () => {
+      try { localStorage.removeItem(LS); } catch (err) {}
+      applyOrder(originalNames);
+      startEl.value = usjDay.start || "08:30";
+      recompute();
+    });
+    recompute();
+  }
 
   const prevBtn = document.getElementById("prev-day");
   const nextBtn = document.getElementById("next-day");

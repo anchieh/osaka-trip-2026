@@ -28,6 +28,27 @@ window.TRIP = {
     ],
   },
 
+  // USJ 園區與區間步行時間（分鐘，對稱；查無則預設 8）— 供 Day 4 拖曳排程器自動計算
+  usjZones: {
+    hp:        { label: "哈利波特", hex: "#3a3a6b" },
+    jurassic:  { label: "侏羅紀",   hex: "#3f9e5a" },
+    hollywood: { label: "好萊塢",   hex: "#8a4fd0" },
+    snw:       { label: "任天堂",   hex: "#d6485f" },
+    minion:    { label: "小小兵",   hex: "#e0a92b" },
+    jaws:      { label: "親善村",   hex: "#2a7fa6" },
+    ny:        { label: "紐約/舊金山", hex: "#b5613a" },
+    exit:      { label: "出口/城市步道", hex: "#3a4a52" },
+  },
+  usjWalk: {
+    "hp-jurassic":6,"hp-snw":8,"hp-jaws":8,"hp-hollywood":12,"hp-minion":12,"hp-ny":10,"hp-exit":14,
+    "jurassic-snw":6,"jurassic-jaws":5,"jurassic-hollywood":10,"jurassic-minion":8,"jurassic-ny":7,"jurassic-exit":12,
+    "snw-jaws":8,"snw-hollywood":12,"snw-minion":12,"snw-ny":11,"snw-exit":14,
+    "jaws-hollywood":8,"jaws-minion":6,"jaws-ny":6,"jaws-exit":10,
+    "hollywood-minion":4,"hollywood-ny":5,"hollywood-exit":3,
+    "minion-ny":6,"minion-exit":5,
+    "ny-exit":5,
+  },
+
   days: [
     {
       n: 1,
@@ -631,6 +652,7 @@ window.TRIP = {
       weekday: "二",
       start: "08:00",
       end: "22:00",
+      usj: true,
       title: "環球影城",
       theme: "日本環球影城一日券，超級任天堂世界",
       center: [34.6654, 135.4323],
@@ -694,6 +716,8 @@ window.TRIP = {
           time: "08:30~10:30",
           type: "spot",
           name: "哈利波特魔法世界",
+          zone: "hp",
+          dur: 120,
           desc: "一開園先衝這區。禁忌之旅 Forbidden Journey（排隊約 50–80 分）、鷹馬的飛行（約 30–50 分）。活米村逛街、喝奶油啤酒、拍霍格華茲城堡——魔杖已租好，可直接互動施咒。",
           transit: "🚶 入園後直奔最深處　約 8 分",
           transitDetail: {
@@ -710,6 +734,8 @@ window.TRIP = {
           time: "10:30~11:30",
           type: "spot",
           name: "侏羅紀公園・飛天翼龍",
+          zone: "jurassic",
+          dur: 75,
           desc: "飛天翼龍 The Flying Dinosaur（排隊約 60–100 分，園區最刺激）、侏羅紀公園乘船遊。建議用快速通關。",
           transit: "🚶 哈利波特 → 侏羅紀公園　約 6 分",
           transitDetail: {
@@ -725,6 +751,8 @@ window.TRIP = {
           time: "11:30~12:30",
           type: "food",
           name: "午餐（園區餐廳）",
+          zone: "hollywood",
+          dur: 60,
           desc: "避開 12:00 高峰，提早用餐較不用久候。三廣場餐廳、侏羅紀/好萊塢區餐廳都可選。",
           transit: "🚶 園區內　約 5 分",
           transitDetail: {
@@ -737,6 +765,8 @@ window.TRIP = {
           time: "12:30~13:30",
           type: "spot",
           name: "好萊塢區・好萊塢美夢飛車",
+          zone: "hollywood",
+          dur: 70,
           desc: "好萊塢美夢飛車 Hollywood Dream the Ride（排隊約 40–70 分），可選逆向 Backdrop。季節限定 XR/聯名（如 Cool Japan）也多在此區，依官方為準。",
           transit: "🚶 侏羅紀 → 好萊塢區　約 8 分",
           transitDetail: {
@@ -749,6 +779,8 @@ window.TRIP = {
           time: "14:00~16:00",
           type: "spot",
           name: "超級任天堂世界（SNW）",
+          zone: "snw",
+          dur: 120,
           desc: "已買下午 4 人保證入園（確約券），下午直接進場、不必抽整理券。先衝『咚奇剛礦車』（新設施，排隊約 60–90 分）；瑪利歐賽車 庫巴的挑戰書用快速通關，並可再排一次快速通關；洋洋冒險（約 30–50 分）。可玩鑰匙挑戰、奇諾比奧咖啡館。",
           transit: "🚶 好萊塢 → 超級任天堂世界　約 10 分",
           transitDetail: {
@@ -765,6 +797,8 @@ window.TRIP = {
           time: "16:00~17:00",
           type: "spot",
           name: "小小兵樂園",
+          zone: "minion",
+          dur: 60,
           desc: "小小兵瘋狂乘車遊 Minion Mayhem（排隊約 40–70 分）、冰凍射擊遊戲。周邊商品與美食豐富。",
           transit: "🚶 任天堂 → 小小兵樂園　約 8 分",
           transitDetail: {
@@ -777,6 +811,8 @@ window.TRIP = {
           time: "17:00~18:00",
           type: "spot",
           name: "大白鯊／表演秀",
+          zone: "jaws",
+          dur: 60,
           desc: "親善村 大白鯊 JAWS（排隊約 20–40 分）。傍晚可改看表演秀（如環球奇蹤、季節遊行），避開熱門設施人潮。",
           transit: "🚶 小小兵 → 親善村　約 5 分",
           transitDetail: {
@@ -789,6 +825,8 @@ window.TRIP = {
           time: "18:30~20:30",
           type: "tip",
           name: "夜間遊行・夜景＋回刷熱門",
+          zone: "hollywood",
+          dur: 90,
           desc: "晚間看夜間遊行/燈光秀。閉園前 1 小時，熱門設施（任天堂、飛天翼龍、美夢飛車）排隊常大幅縮短，可把白天沒玩到的回刷。",
           transit: "🚶 園區大道　看遊行／夜景",
           transitDetail: {
@@ -804,6 +842,8 @@ window.TRIP = {
           time: "20:30~21:30",
           type: "food",
           name: "環球城市步道 晚餐＋購物",
+          zone: "exit",
+          dur: 60,
           desc: "出園後在環球城市步道（CityWalk）用晚餐、買伴手禮，避開閉園瞬間的車站人潮。",
           transit: "🚶 出園 → 環球城市步道　約 5 分",
           transitDetail: {

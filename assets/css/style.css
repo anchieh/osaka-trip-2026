@@ -371,3 +371,29 @@ footer { text-align:center; color: var(--muted); font-size:.8rem; padding: 30px 
   .emg-navtitle { font-size: .8rem; }
   .emg-sec { padding: 26px 14px; }
 }
+
+/* ===== Day 4 USJ 拖曳排程器 ===== */
+.usj-planner { background:#fbf7f0; border:1px solid var(--line); border-radius:14px; padding:12px 12px 14px; margin:6px 0 14px; }
+.usj-ctrl { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.usj-startlbl { font-weight:700; font-size:.9rem; }
+.usj-startlbl input { font:inherit; padding:4px 8px; border:1px solid var(--line); border-radius:8px; }
+.usj-endlbl { font-size:.9rem; color:var(--muted); }
+.usj-endlbl b { color:var(--accent-2); font-size:1rem; }
+.usj-reset { margin-left:auto; font:inherit; font-size:.82rem; border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 12px; cursor:pointer; }
+.usj-reset:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.usj-hint { font-size:.78rem; color:var(--muted); margin:8px 0 12px; }
+.usj-list { display:flex; flex-direction:column; gap:8px; }
+.usj-card { background:#fff; border:1px solid var(--line); border-left:5px solid var(--zhex,#999); border-radius:12px; box-shadow:var(--shadow); }
+.usj-walk { font-size:.76rem; color:var(--muted); padding:6px 14px 0; }
+.usj-card__row { display:flex; align-items:center; gap:10px; padding:10px 12px; }
+.usj-handle { cursor:grab; font-size:1.25rem; color:#c4bdb0; flex:0 0 auto; touch-action:none; user-select:none; padding:0 2px; }
+.usj-handle:active { cursor:grabbing; }
+.usj-zone { flex:0 0 auto; font-size:.72rem; font-weight:700; color:#fff; background:var(--zhex,#999); border-radius:999px; padding:3px 9px; white-space:nowrap; }
+.usj-body { flex:1 1 auto; min-width:0; cursor:pointer; }
+.usj-name { font-weight:700; font-size:.98rem; }
+.usj-meta { font-size:.85rem; color:#5c554a; margin-top:1px; }
+.usj-meta b.usj-time { color:var(--accent-2); }
+.usj-toggle { color:var(--accent-2); font-size:.78rem; white-space:nowrap; }
+.usj-detail { font-size:.85rem; color:#5c554a; margin-top:7px; line-height:1.65; }
+.usj-card.sortable-ghost { opacity:.35; }
+.usj-card.sortable-chosen { box-shadow:0 8px 22px rgba(0,0,0,.18); }
